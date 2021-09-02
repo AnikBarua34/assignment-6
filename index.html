@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- styling the HTML  -->
+    <style>
+        body {
+            background-color: #E5E7EB;
+        }
+
+        .Publisher {
+            color: black;
+            font-weight: 500;
+        }
+
+        .btn {
+            background-color: cadetblue;
+            color: white;
+        }
+
+        .card {
+            height: 50%;
+        }
+    </style>
+</head>
+
+<!-- body starting from here  -->
+
+<body>
+    <h1 class="text-center mt-4 mb-2">Welcome To Our Book Store</h1>
+    <p class="text-center">Find your favourite book from here and enjoy</p>
+
+    <div class="input-group mt-5 p-3 w-50 mx-auto">
+        <input id="input-value" type="text" class="form-control" placeholder="Find your favourite book from here"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="getBook()" class="btn btn-outline-success bg-dark text-white ms-2" type="button"
+            id="button-addon2">Search</button>
+    </div>
+
+
+    <h3 class="text-center mt-3">Enjoy with Your Favourite books</h3>
+    <!-- card section  -->
+    <div id="div-section" class="row row-cols-1 row-cols-md-3 g-4 ms-3 me-3 mt-1">
+
+    </div>
+
+
+
+
+
+    <!-- script sources  -->
+    <script src="js/book.js"></script>
+</body>
+
+</html>
