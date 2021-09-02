@@ -14,8 +14,6 @@ const getBook = () => {
 
         .then(data => displayBooks(data))
 
-    // .then(data => console.log(data.docs.books))
-
 }
 
 
@@ -31,7 +29,7 @@ const displayBooks = data => {
     if (data.length === 0)
         alert("No Books Found in our STORE, Please Check spelling or Search another Book.")
 
-    // show result 
+    // show total number of result 
 
     if (data.numFound == 0) {
         const showResult = document.getElementById('show-result')
@@ -66,6 +64,7 @@ const displayBooks = data => {
             divSection.appendChild(newDiv);
 
             // taking div section for showing searched result 
+
             const showResult = document.getElementById('show-result')
             showResult.innerHTML = `${data.numFound}`;
         });
