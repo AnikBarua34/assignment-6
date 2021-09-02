@@ -11,30 +11,46 @@ const getBook = () => {
     const url = (`https://openlibrary.org/search.json?q=${inputText}`)
     fetch(url)
         .then(res => res.json())
-        .then(data => displayBooks(data.docs))
+
+        .then(data => displayBooks(data))
+
+    // .then(data => console.log(data.docs.books))
 
 }
 
 
 // declaring function for display books 
-const displayBooks = books => {
+const displayBooks = data => {
+
     const divSection = document.getElementById('div-section')
 
     // clearing all items 
     divSection.innerHTML = '';
 
     // if items not available 
-    if (books.length === 0)
+    if (data.length === 0)
         alert("No Books Found in our STORE, Please Check spelling or Search another Book.")
 
-    // using for each loop
-    books.forEach(book => {
-        const newDiv = document.createElement('div')
+    // show result 
 
-        // adding New Div contents 
+    if (data.numFound == 0) {
+        const showResult = document.getElementById('show-result')
 
-        newDiv.innerHTML = `
-        <div class="col">
+        showResult.innerText = 'No Results found';
+    }
+    else {
+        const rootData = data.docs;
+        const dataSlice = rootData.slice(1, 22);
+
+        // using for each loop
+
+        dataSlice.forEach(book => {
+            const newDiv = document.createElement('div')
+
+            // adding New Div contents 
+
+            newDiv.innerHTML = `
+        <div class="col mx-auto">
             <div class="card h-100">
                 <img src="https://covers.openlibrary.org/b/id/ ${book.cover_i}-M.jpg" class="card-img-top width-50" alt="...">
                 <div class="card-body">
@@ -47,8 +63,12 @@ const displayBooks = books => {
             </div>
         </div>
                             `
-        divSection.appendChild(newDiv);
-    });
+            divSection.appendChild(newDiv);
 
+            // taking div section for showing searched result 
+            const showResult = document.getElementById('show-result')
+            showResult.innerHTML = `${data.numFound}`;
+        });
+    }
 }
 
